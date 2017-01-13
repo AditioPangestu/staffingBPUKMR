@@ -57,12 +57,13 @@ input {
 }
 
 label {
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .error-validation {
     padding : 0 4px;
     background-color: red;
+    color: white;
 }
 
 .photo-profil {

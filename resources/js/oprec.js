@@ -3,6 +3,8 @@ $(document).ready(function(){
     .change(function(){ // bind a function to the change event
         if( $(this).is(":checked") ){ // check if the radio is checked
             var pertamaString = $(this).val(); // retrieve the value
+            var alasanSatu = $(".alasan")[0];
+            alasanSatu.innerHTML = "Kenapa kamu memilih "+pertamaString+" sebagai pilihan pertama?" ;
             var keduaButton = $("input[name=kedua]:checked");
             var ketigaButton = $("input[name=ketiga]:checked");
             if (keduaButton) {
@@ -19,6 +21,8 @@ $(document).ready(function(){
     .change(function(){ // bind a function to the change event
         if( $(this).is(":checked") ){ // check if the radio is checked
             var keduaString = $(this).val(); // retrieve the value
+            var alasanSatu = $(".alasan")[1];
+            alasanSatu.innerHTML = "Kenapa kamu memilih "+keduaString+" sebagai pilihan kedua?" ;
             var pertamaButton = $("input[name=pertama]:checked");
             var ketigaButton = $("input[name=ketiga]:checked");
             if (pertamaButton) {
@@ -35,6 +39,8 @@ $(document).ready(function(){
     .change(function(){ // bind a function to the change event
         if( $(this).is(":checked") ){ // check if the radio is checked
             var ketigaString = $(this).val(); // retrieve the value
+            var alasanSatu = $(".alasan")[2];
+            alasanSatu.innerHTML = "Kenapa kamu memilih "+ketigaString+" sebagai pilihan ketiga?" ;
             var pertamaButton = $("input[name=pertama]:checked");
             var keduaButton = $("input[name=kedua]:checked");
             if (pertamaButton) {
