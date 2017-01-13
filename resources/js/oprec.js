@@ -4,7 +4,7 @@ $(document).ready(function(){
         if( $(this).is(":checked") ){ // check if the radio is checked
             var pertamaString = $(this).val(); // retrieve the value
             var alasanSatu = $(".alasan")[0];
-            alasanSatu.innerHTML = "Kenapa kamu memilih "+pertamaString+" sebagai pilihan pertama?" ;
+            alasanSatu.innerHTML = "Kenapa memilih <b>"+pertamaString+"</b> sebagai pilihan pertama?" ;
             var keduaButton = $("input[name=kedua]:checked");
             var ketigaButton = $("input[name=ketiga]:checked");
             if (keduaButton) {
@@ -22,7 +22,7 @@ $(document).ready(function(){
         if( $(this).is(":checked") ){ // check if the radio is checked
             var keduaString = $(this).val(); // retrieve the value
             var alasanSatu = $(".alasan")[1];
-            alasanSatu.innerHTML = "Kenapa kamu memilih "+keduaString+" sebagai pilihan kedua?" ;
+            alasanSatu.innerHTML = "Kenapa memilih <b>"+keduaString+"</b> sebagai pilihan kedua?" ;
             var pertamaButton = $("input[name=pertama]:checked");
             var ketigaButton = $("input[name=ketiga]:checked");
             if (pertamaButton) {
@@ -40,7 +40,7 @@ $(document).ready(function(){
         if( $(this).is(":checked") ){ // check if the radio is checked
             var ketigaString = $(this).val(); // retrieve the value
             var alasanSatu = $(".alasan")[2];
-            alasanSatu.innerHTML = "Kenapa kamu memilih "+ketigaString+" sebagai pilihan ketiga?" ;
+            alasanSatu.innerHTML = "Kenapa memilih <b>"+ketigaString+"</b> sebagai pilihan ketiga?" ;
             var pertamaButton = $("input[name=pertama]:checked");
             var keduaButton = $("input[name=kedua]:checked");
             if (pertamaButton) {
@@ -53,4 +53,27 @@ $(document).ready(function(){
             }
         }
     });
+    $('input[required], textarea[required]').on('focusout change', function() {
+        if ($.trim($(this).val()) === null || $.trim($(this).val()) === "") {
+            $(this).addClass('error');
+            $(this).closest('.form-group').find('.error-validation').show();
+        } else {
+            $(this).removeClass('error');
+            $(this).closest('.form-group').find('.error-validation').hide();
+        }
+    });
+    function validate() {
+        if (!$('#nama').val() || !$('#telepon').val() || !$('#idline').val() || !$('input[name:pertama]').is(":checked") || !$('input[name:kedua]').is(":checked") || !$('input[name:ketiga]').is(":checked") || !$('#alspertama').val() || !$('#alskedua').val() || !$('#alsketiga').val()) {
+            return false;
+        } else {
+            return true;
+        }
+    };
+    
+    $('#submit').on('click', function (){
+        if (validate()) {
+            
+        }    
+    })
+
 });

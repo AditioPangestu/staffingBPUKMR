@@ -1,6 +1,6 @@
 section {
-    padding-top: 60px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .full-page-container {
@@ -179,4 +179,8 @@ label {
 .mid {
     width: 100%;
     text-align: center;
+}
+
+.error-validation {
+    display: none;
 }
