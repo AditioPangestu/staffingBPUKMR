@@ -121,7 +121,16 @@ $(document).ready(function(){
     $('#submit').on('click', function (){
         if (validate()) {
             postToGoogle();
-        }    
+        } else {
+            console.log("MAMAM");
+            $('input[required], textarea[required]').each(function(i, e) {
+                console.log(e.type);
+                if (!$.trim($(e).val())) {
+                    $(e).addClass('error');
+                    $(e).closest('.form-group').find('.error-validation').show();
+                }
+            });
+        }
     })
 
 });

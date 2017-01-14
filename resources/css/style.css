@@ -8,7 +8,7 @@ section {
     padding: 0;
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.62),rgba(0, 0, 0, 0.62)), url("../img/first-page.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.62),rgba(0, 0, 0, 0.62)), url("../img/first_page.jpg");
     background-size: cover;
     background-position: center;
 }
