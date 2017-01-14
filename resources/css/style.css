@@ -184,3 +184,11 @@ label {
 .error-validation {
     display: none;
 }
+
+button {
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #29469b;
+    color: white;
+    border: none;
+}

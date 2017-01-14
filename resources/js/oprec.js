@@ -1,5 +1,6 @@
 $(document).ready(function(){
-   $("input[name=pertama]") // select the radio by its id
+   
+    $("input[name=pertama]") // select the radio by its id
     .change(function(){ // bind a function to the change event
         if( $(this).is(":checked") ){ // check if the radio is checked
             var pertamaString = $(this).val(); // retrieve the value
@@ -63,16 +64,63 @@ $(document).ready(function(){
         }
     });
     function validate() {
-        if (!$('#nama').val() || !$('#telepon').val() || !$('#idline').val() || !$('input[name:pertama]').is(":checked") || !$('input[name:kedua]').is(":checked") || !$('input[name:ketiga]').is(":checked") || !$('#alspertama').val() || !$('#alskedua').val() || !$('#alsketiga').val()) {
+        if (!$('#nama').val() || !$('#telepon').val() || !$('#idline').val() || !$('input[name=pertama]').is(":checked") || !$('input[name=kedua]').is(":checked") || !$('input[name=ketiga]').is(":checked") || !$('#alspertama').val() || !$('#alskedua').val() || !$('#alsketiga').val()) {
             return false;
         } else {
             return true;
         }
     };
     
+    function postToGoogle() {
+        var nama = $('#nama').val();
+        var telepon = $('#telepon').val();
+        var idline = $('#idline').val();
+        var pilsatu = $('input[name=pertama]:checked').val();
+        var pildua = $('input[name=kedua]:checked').val();
+        var piltiga = $('input[name=ketiga]:checked').val();
+        var alassatu = $('#alspertama').val();
+        var alasdua = $('#alskedua').val();
+        var alastiga = $('#alsketiga').val();
+
+        $.ajax({
+            url: "https://docs.google.com/forms/d/e/1FAIpQLScpJn7c78rkbqkOvdF4jcdhY1bVmLKCyRXY4P-kaW5rHJ0sqA/formResponse",
+            data: {"entry.870011858": nama, "entry.151484324": telepon, "entry.2106828603": idline, "entry.1418598249": pilsatu, "entry.1780762647": alassatu, "entry.863785637": pildua, "entry.1907015165": alasdua, "entry.1161452479": piltiga, "entry.1595451292": alastiga},
+            type: "POST",
+            dataType: "xml",
+            statusCode: {
+                0: function() {
+                    //Success message
+                    $('#nama').val("");
+                    $('#telepon').val("");
+                    $('#idline').val("");
+                    $('input[name=pertama]').prop('checked',false);
+                    $('input[name=kedua]').prop('checked',false);
+                    $('input[name=ketiga]').prop('checked',false);
+                    $('#alspertama').val("");
+                    $('#alskedua').val("");
+                    $('#alsketiga').val("");
+                    window.location.href = './terimakasih.html';
+                },
+                200: function() {
+                    //Success Message
+                    $('#nama').val("");
+                    $('#telepon').val("");
+                    $('#idline').val("");
+                    $('input[name=pertama]').prop('checked',false);
+                    $('input[name=kedua]').prop('checked',false);
+                    $('input[name=ketiga]').prop('checked',false);
+                    $('#alspertama').val("");
+                    $('#alskedua').val("");
+                    $('#alsketiga').val("");
+                    window.location.href = './terimakasih.html';
+                }
+            }
+        });
+    }
+    
     $('#submit').on('click', function (){
         if (validate()) {
-            
+            postToGoogle();
         }    
     })
 
