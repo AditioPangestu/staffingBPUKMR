@@ -130,6 +130,9 @@ $(document).ready(function(){
                     $(e).closest('.form-group').find('.error-validation').show();
                 }
             });
+            if (!$('input[name=pertama]').is(":checked") || !$('input[name=kedua]').is(":checked") || !$('input[name=ketiga]').is(":checked")) {
+                $('.division-error').show();
+            }
         }
     })
 

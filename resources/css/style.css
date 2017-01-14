@@ -181,8 +181,15 @@ label {
     text-align: center;
 }
 
-.error-validation {
+.error-validation, .division-error {
     display: none;
+}
+
+.division-error {
+    position: relative;
+    top : 12px;
+    color: red;
+    font-weight: 600;
 }
 
 button {
